@@ -7,3 +7,7 @@ static/*
 ssl/*
 /.project
 *.db
+.vscode
+.env
+depot_overview.pdf
+depotlist.pdf
