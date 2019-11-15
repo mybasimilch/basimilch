@@ -46,21 +46,26 @@ INSTALLED_APPS = [
 ROOT_URLCONF = "basimilch.urls"
 
 
-DATABASES = {}
-DATABASES["default"] = dj_database_url.config(
-    default="sqlite:///yourdatabasename.db", ssl_require=not (DEBUG), conn_max_age=600
-)
+# DATABASES = {}
+# DATABASES["default"] = dj_database_url.config(
+#     default="sqlite:///yourdatabasename.db", ssl_require=not (DEBUG), conn_max_age=600
+# )
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': os.environ.get('JUNTAGRICO_DATABASE_ENGINE','django.db.backends.sqlite3'),
-#         'NAME': os.environ.get('JUNTAGRICO_DATABASE_NAME','basimilch.db'),
-#         'USER': os.environ.get('JUNTAGRICO_DATABASE_USER'), #''junatagrico', # The following settings are not used with sqlite3:
-#         'PASSWORD': os.environ.get('JUNTAGRICO_DATABASE_PASSWORD'), #''junatagrico',
-#         'HOST': os.environ.get('JUNTAGRICO_DATABASE_HOST'), #'localhost', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-#         'PORT': os.environ.get('JUNTAGRICO_DATABASE_PORT', False), #''', # Set to empty string for default.
-#     }
-# }
+
+DATABASES = {
+    "default": {
+        "ENGINE": os.environ.get("JUNTAGRICO_DATABASE_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("JUNTAGRICO_DATABASE_NAME", "basimilch.db"),
+        "USER": os.environ.get(
+            "JUNTAGRICO_DATABASE_USER"
+        ),  #''junatagrico', # The following settings are not used with sqlite3:
+        "PASSWORD": os.environ.get("JUNTAGRICO_DATABASE_PASSWORD"),  #''junatagrico',
+        "HOST": os.environ.get(
+            "JUNTAGRICO_DATABASE_HOST"
+        ),  #'localhost', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        "PORT": os.environ.get("JUNTAGRICO_DATABASE_PORT", False),  #''', # Set to empty string for default.
+    }
+}
 
 TEMPLATES = [
     {
@@ -173,3 +178,7 @@ ADMINPORTAL_NAME = "Basimilch"
 ADMINPORTAL_SERVER_URL = "my.basimil.ch"
 SHARE_PRICE = "300"
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+
+
+
+
