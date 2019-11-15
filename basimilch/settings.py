@@ -20,7 +20,8 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "[::1]",
-    "basimilch-test.herokuapp.com" "my.basimil.ch",
+    "basimilch-test.herokuapp.com",
+    "my.basimil.ch",
     "basimilch.juntagrico.science",
 ]
 
