@@ -116,7 +116,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "impersonate.middleware.ImpersonateMiddleware",
 ]
-SECURE_SSL_REDIRECT = not (DEBUG)
+SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "False") == "True"
 
 EMAIL_HOST = os.environ.get("JUNTAGRICO_EMAIL_HOST")
 EMAIL_HOST_USER = os.environ.get("JUNTAGRICO_EMAIL_USER")
