@@ -4,7 +4,6 @@ Django settings for basimilch project.
 
 import os
 
-import dj_database_url
 from juntagrico.util import pdf
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -46,24 +45,14 @@ INSTALLED_APPS = [
 ROOT_URLCONF = "basimilch.urls"
 
 
-# DATABASES = {}
-# DATABASES["default"] = dj_database_url.config(
-#     default="sqlite:///yourdatabasename.db", ssl_require=not (DEBUG), conn_max_age=600
-# )
-
-
 DATABASES = {
     "default": {
         "ENGINE": os.environ.get("JUNTAGRICO_DATABASE_ENGINE", "django.db.backends.sqlite3"),
         "NAME": os.environ.get("JUNTAGRICO_DATABASE_NAME", "basimilch.db"),
-        "USER": os.environ.get(
-            "JUNTAGRICO_DATABASE_USER"
-        ),  #''junatagrico', # The following settings are not used with sqlite3:
-        "PASSWORD": os.environ.get("JUNTAGRICO_DATABASE_PASSWORD"),  #''junatagrico',
-        "HOST": os.environ.get(
-            "JUNTAGRICO_DATABASE_HOST"
-        ),  #'localhost', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        "PORT": os.environ.get("JUNTAGRICO_DATABASE_PORT", False),  #''', # Set to empty string for default.
+        "USER": os.environ.get("JUNTAGRICO_DATABASE_USER"),
+        "PASSWORD": os.environ.get("JUNTAGRICO_DATABASE_PASSWORD"),
+        "HOST": os.environ.get("JUNTAGRICO_DATABASE_HOST"),
+        "PORT": os.environ.get("JUNTAGRICO_DATABASE_PORT", False),
     }
 }
 
@@ -97,7 +86,7 @@ LANGUAGE_CODE = "de-CH"
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
+# to load   #'localhost', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.the internationalization machinery.
 USE_I18N = True
 
 # If you set this to False, Django will not format dates, numbers and
@@ -178,7 +167,3 @@ ADMINPORTAL_NAME = "Basimilch"
 ADMINPORTAL_SERVER_URL = "my.basimil.ch"
 SHARE_PRICE = "300"
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
-
-
-
-
