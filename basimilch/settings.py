@@ -163,7 +163,7 @@ ORGANISATION_ADDRESS = {
 
 STYLE_SHEET = "/static/css/basimilch.css"
 
-FAVICON = "/static/img/favicon.ico"
+FAVICON = "/static/img/favicon_basi.ico"
 IMAGES = {
     'status_100': '/static/img/indicators/status_100.png',
     'status_75': '/static/img/indicators/status_75.png',
