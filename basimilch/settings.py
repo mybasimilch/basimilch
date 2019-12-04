@@ -4,8 +4,6 @@ Django settings for basimilch project.
 
 import os
 
-from juntagrico.util import pdf
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -86,7 +84,9 @@ LANGUAGE_CODE = "de-CH"
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
-# to load   #'localhost', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.the internationalization machinery.
+# to load  'localhost',
+# Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+# the internationalization machinery.
 USE_I18N = True
 
 # If you set this to False, Django will not format dates, numbers and
