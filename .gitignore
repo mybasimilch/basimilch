@@ -11,3 +11,4 @@ ssl/*
 .env
 depot_overview.pdf
 depotlist.pdf
+__pycache__
