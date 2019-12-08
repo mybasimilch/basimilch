@@ -165,15 +165,15 @@ STYLE_SHEET = "/static/css/basimilch.css"
 
 FAVICON = "/static/img/favicon_basi.ico"
 IMAGES = {
-    'status_100': '/static/img/indicators/status_100.png',
-    'status_75': '/static/img/indicators/status_75.png',
-    'status_50': '/static/img/indicators/status_50.png',
-    'status_25': '/static/img/indicators/status_25.png',
-    'status_0': '/static/img/indicators/single_empty.png',
-    'single_full': '/static/img/indicators/single_full.png',
-    'single_empty': '/static/img/indicators/single_empty.png',
-    'single_core': '/static/img/indicators/single_full.png',
-    'core': '/static/img/indicators/single_full.png'
+    "status_100": "/static/img/indicators/status_100.png",
+    "status_75": "/static/img/indicators/status_75.png",
+    "status_50": "/static/img/indicators/status_50.png",
+    "status_25": "/static/img/indicators/status_25.png",
+    "status_0": "/static/img/indicators/single_empty.png",
+    "single_full": "/static/img/indicators/single_full.png",
+    "single_empty": "/static/img/indicators/single_empty.png",
+    "single_core": "/static/img/indicators/single_full.png",
+    "core": "/static/img/indicators/single_full.png",
 }
 
 ORGANISATION_BANK_CONNECTION = {"PC": "11", "IBAN": "11", "BIC": "11", "NAME": "ZKB", "ESR": ""}
