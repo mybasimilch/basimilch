@@ -127,9 +127,6 @@ if os.environ.get("WHITELIST_EMAILS"):
     WHITELIST_EMAILS += os.environ.get("WHITELIST_EMAILS").split(";")
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATIC_URL = "/static/"
-
 IMPERSONATE = {
     "REDIRECT_URL": "/my/profile",
 }
@@ -139,9 +136,11 @@ LOGIN_REDIRECT_URL = "/my/home"
 """
     File & Storage Settings
 """
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
 ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
-
-MEDIA_ROOT = "media"
 
 """
      Crispy Settings
@@ -183,3 +182,14 @@ ADMINPORTAL_NAME = "Basimilch"
 ADMINPORTAL_SERVER_URL = "my.basimil.ch"
 SHARE_PRICE = "300"
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+
+USE_S3 = os.environ.get("USE_S3") == "True"
+
+if USE_S3:
+    INSTALLED_APPS.append("django_s3_storage")
+    DEFAULT_FILE_STORAGE = "django_s3_storage.storage.S3Storage"
+    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+    AWS_REGION = os.environ.get("AWS_REGION")
+    AWS_S3_BUCKET_AUTH = False
+    AWS_S3_BUCKET_NAME = os.environ.get("AWS_S3_BUCKET_NAME")
+    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
