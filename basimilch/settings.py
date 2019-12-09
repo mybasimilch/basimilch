@@ -175,14 +175,25 @@ IMAGES = {
     "core": "/static/img/indicators/single_full.png",
 }
 
-ORGANISATION_BANK_CONNECTION = {"PC": "11", "IBAN": "11", "BIC": "11", "NAME": "ZKB", "ESR": ""}
+ORGANISATION_BANK_CONNECTION = {
+    "PC": "-",
+    "IBAN": "CH56 0839 0033 6848 1000 7",
+    "BIC": "ABSOCH22XXX",
+    "NAME": "Alternative Bank Schweiz AG",
+}
+
+
 INFO_EMAIL = "info@basimil.ch"
 SERVER_URL = os.environ.get("SERVER_URL", "www.basimil.ch")
 ADMINPORTAL_NAME = "Basimilch"
 ADMINPORTAL_SERVER_URL = "my.basimil.ch"
 SHARE_PRICE = "300"
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+BYLAWS = "https://basimil.ch/genossenschaft/statuten/"
+BUSINESS_REGULATIONS = "https://basimil.ch/genossenschaft/betriebsreglement/"
+FAQ_DOC = "https://basimil.ch/faq/"
 
+# SPECIFIC SETTINGS FOR HEROKU
 USE_S3 = os.environ.get("USE_S3") == "True"
 
 if USE_S3:
