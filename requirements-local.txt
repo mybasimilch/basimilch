@@ -1,2 +1,2 @@
-juntagrico>=1.1.9
+juntagrico==1.1.9
 git+http://github.com/juntagrico/juntagrico-custom-sub.git@master
