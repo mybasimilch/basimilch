@@ -1,3 +1,0 @@
-[submodule "basimilch/management/commands"]
-	path = basimilch/management/commands
-	url = https://github.com/mybasimilch/data_migration.git
