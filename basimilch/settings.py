@@ -192,6 +192,7 @@ GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 BYLAWS = "https://basimil.ch/genossenschaft/statuten/"
 BUSINESS_REGULATIONS = "https://basimil.ch/genossenschaft/betriebsreglement/"
 FAQ_DOC = "https://basimil.ch/faq/"
+BUSINESS_YEAR_CANCELATION_MONTH = 9
 
 # SPECIFIC SETTINGS FOR HEROKU
 USE_S3 = os.environ.get("USE_S3") == "True"
