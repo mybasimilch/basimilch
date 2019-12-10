@@ -33,11 +33,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.admin",
+    "basimilch",
     "juntagrico",
     "juntagrico_custom_sub",
     "impersonate",
     "crispy_forms",
-    "basimilch",
 ]
 
 ROOT_URLCONF = "basimilch.urls"
