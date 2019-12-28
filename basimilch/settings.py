@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "juntagrico_list_gen",
     "impersonate",
     "crispy_forms",
+    "data_wrangling"
 ]
 
 ROOT_URLCONF = "basimilch.urls"
