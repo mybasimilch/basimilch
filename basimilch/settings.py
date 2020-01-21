@@ -79,7 +79,7 @@ USE_TZ = True
 
 TIME_ZONE = "Europe/Zurich"
 
-LANGUAGE_CODE = "de-CH"
+LANGUAGE_CODE = "de"
 
 SITE_ID = 1
 
