@@ -1,2 +1,3 @@
 juntagrico==1.2.1
 git+http://github.com/juntagrico/juntagrico-custom-sub.git@master
+git+http://github.com/flurin-conradin/juntagrico-list-gen@master
