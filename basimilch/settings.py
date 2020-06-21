@@ -195,6 +195,7 @@ BYLAWS = "https://basimil.ch/genossenschaft/statuten/"
 BUSINESS_REGULATIONS = "https://basimil.ch/genossenschaft/betriebsreglement/"
 FAQ_DOC = "https://basimil.ch/faq/"
 BUSINESS_YEAR_CANCELATION_MONTH = 9
+MEMBERSHIP_END_MONTH = 12
 
 # SPECIFIC SETTINGS FOR HEROKU
 USE_S3 = os.environ.get("USE_S3") == "True"
