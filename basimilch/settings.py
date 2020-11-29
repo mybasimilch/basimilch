@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "basimilch",
     "juntagrico",
     "juntagrico_custom_sub",
+    "juntagrico_depot_management",
     "juntagrico_list_gen",
     "impersonate",
     "crispy_forms",
