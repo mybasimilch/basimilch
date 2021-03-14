@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^impersonate/', include('impersonate.urls')),
     url(r'^', include('juntagrico_list_gen.urls')),
     url(r'^', include('juntagrico_depot_management.urls')),
+    url(r'^', include('juntagrico_assignment_export.urls')),
 ]

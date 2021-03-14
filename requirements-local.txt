@@ -2,3 +2,4 @@ git+http://github.com/mybasimilch/juntagrico.git@suggested_features_for_juntagri
 git+http://github.com/juntagrico/juntagrico-custom-sub.git@master
 git+http://github.com/mybasimilch/juntagrico-list-gen@master
 git+http://github.com/mybasimilch/juntagrico-depot-management.git@main
+git+http://github.com/mybasimilch/juntagrico-assignment-export.git@main

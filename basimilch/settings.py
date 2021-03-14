@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "juntagrico",
     "juntagrico_custom_sub",
     "juntagrico_depot_management",
+    "juntagrico_assignment_export",
     "juntagrico_list_gen",
     "impersonate",
     "crispy_forms",
