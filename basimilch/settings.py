@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "juntagrico_list_gen",
     "impersonate",
     "crispy_forms",
+    "adminsortable2",
 ]
 
 ROOT_URLCONF = "basimilch.urls"
@@ -59,6 +60,11 @@ DATABASES = {
     }
 }
 
+class InvalidTemplateVariable(str):
+    def __mod__(self, other):
+        raise NameError(f"In template, undefined variable or unknown value for: '{other}'")
+
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -66,6 +72,7 @@ TEMPLATES = [
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
                 "django.template.context_processors.debug",
+                'django.template.context_processors.request',
                 "django.template.context_processors.i18n",
                 "django.template.context_processors.media",
                 "django.template.context_processors.static",
@@ -73,6 +80,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
             ],
             "loaders": ["django.template.loaders.filesystem.Loader", "django.template.loaders.app_directories.Loader"],
+            "string_if_invalid": InvalidTemplateVariable("%s"),
             "debug": True,
         },
     },
@@ -102,7 +110,10 @@ DATE_INPUT_FORMATS = [
     "%d.%m.%Y",
 ]
 
-AUTHENTICATION_BACKENDS = ("juntagrico.util.auth.AuthenticateWithEmail", "django.contrib.auth.backends.ModelBackend")
+AUTHENTICATION_BACKENDS = (
+    "juntagrico.util.auth.AuthenticateWithEmail",
+    "django.contrib.auth.backends.ModelBackend"
+)
 
 
 MIDDLEWARE = [
@@ -151,6 +162,8 @@ ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
      Crispy Settings
 """
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+CRISPY_FAIL_SILENTLY = not DEBUG
 
 """
      juntagrico Settings
