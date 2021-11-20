@@ -1,5 +1,5 @@
 -r ./requirements-local.txt
-gunicorn==19.9.*
-psycopg2-binary==2.8.*
-whitenoise==4.1.*
-django-s3-storage==0.13.*
+gunicorn==19.9.0
+psycopg2-binary==2.8.6
+whitenoise==4.1.4
+django-s3-storage==0.13.4
