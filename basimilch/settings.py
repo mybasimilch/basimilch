@@ -176,6 +176,7 @@ ORGANISATION_ADDRESS = {
     "number": "3",
     "zip": "8953",
     "city": "Dietikon ZH",
+		"extra": ""
 }
 
 STYLE_SHEET = "/static/css/basimilch.css"
