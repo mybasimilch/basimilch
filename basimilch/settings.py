@@ -203,6 +203,7 @@ ORGANISATION_BANK_CONNECTION = {
 
 
 INFO_EMAIL = "info@basimil.ch"
+DEFAULT_FROM_EMAIL = "noreply@basimil.ch"
 SERVER_URL = os.environ.get("SERVER_URL", "www.basimil.ch")
 ADMINPORTAL_NAME = "Basimilch"
 ADMINPORTAL_SERVER_URL = os.environ.get("ADMINPORTAL_SERVER_URL", 'basimilch-prod.herokuapp.com')
