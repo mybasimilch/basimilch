@@ -1,5 +1,5 @@
-juntagrico==1.4.6
+juntagrico==1.5.4
 git+http://github.com/juntagrico/juntagrico-custom-sub.git@main
-git+http://github.com/mybasimilch/juntagrico-list-gen@master
+git+http://github.com/mybasimilch/juntagrico-list-gen@main
 git+http://github.com/mybasimilch/juntagrico-depot-management.git@main
 git+http://github.com/mybasimilch/juntagrico-assignment-export.git@main

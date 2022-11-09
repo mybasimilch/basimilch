@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "impersonate",
     "crispy_forms",
     "adminsortable2",
+		"polymorphic"
 ]
 
 ROOT_URLCONF = "basimilch.urls"
@@ -125,6 +126,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "impersonate.middleware.ImpersonateMiddleware",
+		"django.contrib.sites.middleware.CurrentSiteMiddleware"
 ]
 SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "False") == "True"
 
@@ -179,7 +181,7 @@ ORGANISATION_ADDRESS = {
 		"extra": ""
 }
 
-STYLE_SHEET = "/static/css/basimilch.css"
+STYLES = {'static': ['css/basimilch.css']}
 
 FAVICON = "/static/img/favicon_basi.ico"
 IMAGES = {
@@ -205,8 +207,6 @@ ORGANISATION_BANK_CONNECTION = {
 INFO_EMAIL = "info@basimil.ch"
 DEFAULT_FROM_EMAIL = "noreply@basimil.ch"
 SERVER_URL = os.environ.get("SERVER_URL", "www.basimil.ch")
-ADMINPORTAL_NAME = "Basimilch"
-ADMINPORTAL_SERVER_URL = os.environ.get("ADMINPORTAL_SERVER_URL", 'basimilch-prod.herokuapp.com')
 SHARE_PRICE = os.environ.get("SHARE_PRICE", "150")
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 BYLAWS = "https://basimil.ch/genossenschaft/statuten/"
