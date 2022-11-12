@@ -19,9 +19,10 @@ ALLOWED_HOSTS = [
     "[::1]",
     "basimilch-test.herokuapp.com",
     "basimilch-prod.herokuapp.com",
+    "basimilch-test-heroku-22.herokuapp.com",
     "my.basimil.ch",
     "basimilch.juntagrico.science",
-    "mein.basimil.ch"
+    "mein.basimil.ch",
 ]
 
 
@@ -44,7 +45,7 @@ INSTALLED_APPS = [
     "impersonate",
     "crispy_forms",
     "adminsortable2",
-		"polymorphic"
+    "polymorphic",
 ]
 
 ROOT_URLCONF = "basimilch.urls"
@@ -61,6 +62,7 @@ DATABASES = {
     }
 }
 
+
 class InvalidTemplateVariable(str):
     def __mod__(self, other):
         raise NameError(f"In template, undefined variable or unknown value for: '{other}'")
@@ -73,7 +75,7 @@ TEMPLATES = [
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
                 "django.template.context_processors.debug",
-                'django.template.context_processors.request',
+                "django.template.context_processors.request",
                 "django.template.context_processors.i18n",
                 "django.template.context_processors.media",
                 "django.template.context_processors.static",
@@ -111,10 +113,7 @@ DATE_INPUT_FORMATS = [
     "%d.%m.%Y",
 ]
 
-AUTHENTICATION_BACKENDS = (
-    "juntagrico.util.auth.AuthenticateWithEmail",
-    "django.contrib.auth.backends.ModelBackend"
-)
+AUTHENTICATION_BACKENDS = ("juntagrico.util.auth.AuthenticateWithEmail", "django.contrib.auth.backends.ModelBackend")
 
 
 MIDDLEWARE = [
@@ -126,7 +125,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "impersonate.middleware.ImpersonateMiddleware",
-		"django.contrib.sites.middleware.CurrentSiteMiddleware"
+    "django.contrib.sites.middleware.CurrentSiteMiddleware",
 ]
 SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "False") == "True"
 
@@ -178,10 +177,10 @@ ORGANISATION_ADDRESS = {
     "number": "3",
     "zip": "8953",
     "city": "Dietikon ZH",
-		"extra": ""
+    "extra": "",
 }
 
-STYLES = {'static': ['css/basimilch.css']}
+STYLES = {"static": ["css/basimilch.css"]}
 
 FAVICON = "/static/img/favicon_basi.ico"
 IMAGES = {
