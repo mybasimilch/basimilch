@@ -86,6 +86,9 @@ TEMPLATES = [
             "string_if_invalid": InvalidTemplateVariable("%s"),
             "debug": True,
         },
+        "DIRS": [
+          'basimilch/custom_templates',
+        ]
     },
 ]
 
@@ -135,6 +138,11 @@ EMAIL_HOST_PASSWORD = os.environ.get("JUNTAGRICO_EMAIL_PASSWORD")
 EMAIL_PORT = int(os.environ.get("JUNTAGRICO_EMAIL_PORT", "25"))
 EMAIL_USE_TLS = os.environ.get("JUNTAGRICO_EMAIL_TLS", "False") == "True"
 EMAIL_USE_SSL = os.environ.get("JUNTAGRICO_EMAIL_SSL", "False") == "True"
+
+
+EMAILS = {
+    'j_reminder': 'job_reminder.txt',
+}
 
 SESSION_SERIALIZER = "django.contrib.sessions.serializers.PickleSerializer"
 
