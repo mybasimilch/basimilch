@@ -87,6 +87,7 @@ class Command(BaseCommand):
             members = Member.objects.filter(
                 Q(~Exists(Share.objects.filter(member=OuterRef("pk"))))
                 & Q(~Exists(SubscriptionMembership.objects.filter(member=OuterRef("pk"))))
+                & Q(~Exists(Assignment.objects.filter(member=OuterRef("pk"))))
             ).delete()
             print(
                 "deleted members: ",
