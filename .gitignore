@@ -9,6 +9,5 @@ ssl/*
 *.db
 .vscode
 .env
-depot_overview.pdf
-depotlist.pdf
+media
 __pycache__
