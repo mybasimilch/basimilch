@@ -25,4 +25,5 @@ urlpatterns = [
     re_path(r'^', include('juntagrico_list_gen.urls')),
     re_path(r'^', include('juntagrico_depot_management.urls')),
     re_path(r'^', include('juntagrico_assignment_export.urls')),
+    re_path(r'^', include('juntagrico_polling.urls')),
 ]
