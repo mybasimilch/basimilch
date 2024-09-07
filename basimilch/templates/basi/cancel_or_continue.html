@@ -1,0 +1,18 @@
+{% load i18n %}
+{% load basimilch_tags %}
+{% show_quick_vote as can_vote %}
+{% current_vote_id as poll_id %}
+{% if can_vote and not subscription.canceled %}
+<div class="row" style="margin-bottom: 10px;">
+    <div class="col-md-3">
+        <a href="{% url 'sub-cancel' subscription.id %}"class="btn btn-danger">
+            {% blocktrans %}{{ v_subscription }} komplett künden{% endblocktrans %}
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-yes" href="{% url 'polling:vote' poll_id 1 %}">
+            Ich bleibe mit meinem Abo im 2025 dabei
+        </a>
+    </div>
+</div>
+{% endif %}
