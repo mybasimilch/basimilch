@@ -104,3 +104,4 @@ you have to login to a heroku bash and setup the db and create the admin user as
 7. pg_dump --format=c --dbname=postgresql://$JUNTAGRICO_DATABASE_USER:$JUNTAGRICO_DATABASE_PASSWORD@127.0.0.1:5432/$JUNTAGRICO_DATABASE_NAME > ~/path/to/dump
 8. Upload the dump to a safe storage, e.g. an AWS S3 bucket and create a presigned url, through the S3 UI
 9. Restore the database to basimilch-test: `heroku pg:backups:restore $AWS_PRESIGNED_URL DATABASE_URL --app basimilch-test`. Note: this deletes everything currently in the database
+10. In case you want to drop the test database again, run `sudo -u postgres dropdb $JUNTAGRICO_DATABASE_NAME`
