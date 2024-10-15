@@ -1,8 +1,9 @@
-juntagrico==1.5.8
-psycopg2-binary==2.9.*
-whitenoise==6.6.*
-git+http://github.com/juntagrico/juntagrico-custom-sub.git@main
-git+http://github.com/mybasimilch/juntagrico-list-gen@9aa78c764eec34c9cce29ba8ebf2f4516aa0bc79
+juntagrico==1.6.5
+psycopg[binary]>=3.1.8
+whitenoise~=6.7.0
+--extra-index-url https://test.pypi.org/simple/
+juntagrico-list-gen==0.0.12rc6 # TODO: release move to pypi
+juntagrico-custom-sub==0.4.0rc1 # TODO: release move to pypi
 git+http://github.com/mybasimilch/juntagrico-depot-management.git@main
 git+http://github.com/mybasimilch/juntagrico-assignment-export.git@main
 git+https://github.com/PaulKC/juntagrico-polling.git@feat/show-results

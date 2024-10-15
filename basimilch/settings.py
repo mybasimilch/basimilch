@@ -9,7 +9,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "8cd-j&jo=-#ecd1jjulp_s*7y$n4tad(0d_g)l=6@n^r8fg3rn")
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY", "8cd-j&jo=-#ecd1jjulp_s*7y$n4tad(0d_g)l=6@n^r8fg3rn"
+)
 
 DEBUG = os.environ.get("JUNTAGRICO_DEBUG", "True") == "True"
 
@@ -41,7 +43,10 @@ INSTALLED_APPS = [
     "juntagrico_depot_management",
     "juntagrico_assignment_export",
     "juntagrico_list_gen",
-    'juntagrico_polling',
+    "juntagrico_polling",
+    "basimilch",
+    "fontawesomefree",
+    "import_export",
     "impersonate",
     "crispy_forms",
     "adminsortable2",
@@ -53,7 +58,9 @@ ROOT_URLCONF = "basimilch.urls"
 
 DATABASES = {
     "default": {
-        "ENGINE": os.environ.get("JUNTAGRICO_DATABASE_ENGINE", "django.db.backends.sqlite3"),
+        "ENGINE": os.environ.get(
+            "JUNTAGRICO_DATABASE_ENGINE", "django.db.backends.sqlite3"
+        ),
         "NAME": os.environ.get("JUNTAGRICO_DATABASE_NAME", "basimilch.db"),
         "USER": os.environ.get("JUNTAGRICO_DATABASE_USER"),
         "PASSWORD": os.environ.get("JUNTAGRICO_DATABASE_PASSWORD"),
@@ -65,7 +72,9 @@ DATABASES = {
 
 class InvalidTemplateVariable(str):
     def __mod__(self, other):
-        raise NameError(f"In template, undefined variable or unknown value for: '{other}'")
+        raise NameError(
+            f"In template, undefined variable or unknown value for: '{other}'"
+        )
 
 
 TEMPLATES = [
@@ -82,13 +91,16 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
             ],
-            "loaders": ["django.template.loaders.filesystem.Loader", "django.template.loaders.app_directories.Loader"],
+            "loaders": [
+                "django.template.loaders.filesystem.Loader",
+                "django.template.loaders.app_directories.Loader",
+            ],
             # "string_if_invalid": InvalidTemplateVariable("%s"),
             "debug": True,
         },
         "DIRS": [
-          'basimilch/custom_templates',
-        ]
+            "basimilch/custom_templates",
+        ],
     },
 ]
 
@@ -116,7 +128,10 @@ DATE_INPUT_FORMATS = [
     "%d.%m.%Y",
 ]
 
-AUTHENTICATION_BACKENDS = ("juntagrico.util.auth.AuthenticateWithEmail", "django.contrib.auth.backends.ModelBackend")
+AUTHENTICATION_BACKENDS = (
+    "juntagrico.util.auth.AuthenticateWithEmail",
+    "django.contrib.auth.backends.ModelBackend",
+)
 
 
 MIDDLEWARE = [
@@ -141,7 +156,7 @@ EMAIL_USE_SSL = os.environ.get("JUNTAGRICO_EMAIL_SSL", "False") == "True"
 
 
 EMAILS = {
-    'j_reminder': 'job_reminder.txt',
+    "j_reminder": "job_reminder.txt",
 }
 
 SESSION_SERIALIZER = "django.contrib.sessions.serializers.PickleSerializer"
@@ -156,7 +171,7 @@ IMPERSONATE = {
     "REDIRECT_URL": "/my/profile",
 }
 
-LOGIN_REDIRECT_URL = "/my/home"
+LOGIN_REDIRECT_URL = "/"
 
 """
     File & Storage Settings
@@ -210,10 +225,10 @@ ORGANISATION_BANK_CONNECTION = {
     "NAME": "Alternative Bank Schweiz AG",
 }
 
+CONTACTS = {"general": "info@basimil.ch"}
 
-INFO_EMAIL = "info@basimil.ch"
+ORGANISATION_WEBSITE = {"name": "Basimilch", "url": "www.basimil.ch"}
 DEFAULT_FROM_EMAIL = "noreply@basimil.ch"
-SERVER_URL = os.environ.get("SERVER_URL", "www.basimil.ch")
 SHARE_PRICE = os.environ.get("SHARE_PRICE", "150")
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 BYLAWS = "https://basimil.ch/genossenschaft/statuten/"
@@ -233,3 +248,5 @@ if USE_S3:
     AWS_S3_BUCKET_AUTH = False
     AWS_S3_BUCKET_NAME = os.environ.get("AWS_S3_BUCKET_NAME")
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+
+IMPORT_EXPORT_EXPORT_PERMISSION_CODE = "view"
