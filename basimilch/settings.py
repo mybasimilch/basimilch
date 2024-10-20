@@ -37,14 +37,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.admin",
-    "basimilch",
-    "juntagrico",
+    "juntagrico_list_gen",
     "juntagrico_custom_sub",
     "juntagrico_depot_management",
     "juntagrico_assignment_export",
-    "juntagrico_list_gen",
     "juntagrico_polling",
     "basimilch",
+    "juntagrico",
     "fontawesomefree",
     "import_export",
     "impersonate",
@@ -98,9 +97,7 @@ TEMPLATES = [
             # "string_if_invalid": InvalidTemplateVariable("%s"),
             "debug": True,
         },
-        "DIRS": [
-            "basimilch/custom_templates",
-        ],
+        "DIRS": ["basimilch/custom_templates"],
     },
 ]
 
