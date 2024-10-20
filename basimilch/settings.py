@@ -19,7 +19,6 @@ ALLOWED_HOSTS = [
     "[::1]",
     "basimilch-test.herokuapp.com",
     "basimilch-prod.herokuapp.com",
-    "basimilch-test-heroku-22.herokuapp.com",
     "my.basimil.ch",
     "basimilch.juntagrico.science",
     "mein.basimil.ch",
