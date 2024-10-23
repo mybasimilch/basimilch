@@ -35,18 +35,6 @@ html, body {
     box-shadow: 0 0 0 0.2rem rgba(135, 181, 222,.5);
 }
 
-.btn-yes {
-    color: #fff;
-    background-color: #458c45;
-    border-color: #458c45;    
-}
-
-.btn-yes:hover {
-    color: #fff;
-    background-color: #326932;
-    border-color: #326932;
-}
-
 a {
     color: #337ab7;
 }
