@@ -4,6 +4,6 @@ whitenoise~=6.7.0
 --extra-index-url https://test.pypi.org/simple/
 juntagrico-list-gen==0.0.12rc6 # TODO: release move to pypi
 juntagrico-custom-sub==0.4.0rc1 # TODO: release move to pypi
-git+http://github.com/mybasimilch/juntagrico-depot-management.git@main
-git+http://github.com/mybasimilch/juntagrico-assignment-export.git@main
+git+http://github.com/mybasimilch/juntagrico-depot-management.git@1.1.2rc1 # TODO: create released package or integrate into basimilch again? 
+git+http://github.com/mybasimilch/juntagrico-assignment-export.git@1.1.2rc1 # TODO: create released package or integrate into basimilch again? 
 git+https://github.com/PaulKC/juntagrico-polling.git@feat/show-results
