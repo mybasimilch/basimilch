@@ -1,6 +1,6 @@
 juntagrico==1.5.8
 git+http://github.com/juntagrico/juntagrico-custom-sub.git@main
-git+http://github.com/mybasimilch/juntagrico-list-gen@main
+git+http://github.com/mybasimilch/juntagrico-list-gen@9aa78c764eec34c9cce29ba8ebf2f4516aa0bc79
 git+http://github.com/mybasimilch/juntagrico-depot-management.git@main
 git+http://github.com/mybasimilch/juntagrico-assignment-export.git@main
 git+https://github.com/PaulKC/juntagrico-polling.git@feat/show-results
