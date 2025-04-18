@@ -1,14 +1,12 @@
-# Juntagrico Heroku Template for cookiecutter
+# Getting started
 
-This template sets up a project to be used with juntagrico.science as hosting.
-
-# Setting up locally to test setup
-
-On any environment install Python 3, and add it to your path
+On any environment, ensure Python 3 is installed. 
 
 ## UNIX
 
 ### Set your environment variables
+See the .env.template for details. Reach out to maintainers for secrets.
+
 
 ### Installing requirements
 
