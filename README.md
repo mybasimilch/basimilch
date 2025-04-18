@@ -10,11 +10,20 @@ See the .env.template for details. Reach out to maintainers for secrets.
 
 ### Installing requirements
 
-    sudo easy_install pip
-    sudo pip install virtualenv
-    virtualenv --distribute venv
-    source ./venv/bin/activate
-    pip install --upgrade -r requirements.txt
+#### Standard approach
+
+- Create a new virtual environment: `python -m venv .venv`
+- Activate the virtual environment: `source .venv/bin/activate`
+- Install the dependencies: `pip install --upgrade -r requirements-local.txt`
+- (To deactivate the virtual environment again): `deactivate`
+
+#### Bleeding edge approach using the [uv package manager for python](https://docs.astral.sh/uv/)
+Note: First install uv
+- Create a new virtual environment: `uv venv`
+- Activate the virtual environment: `source .venv/bin/activate`
+- Install the dependencies: `uv pip install -r requirements-local.txt`
+- (To deactivate the virtual environment again): `deactivate`
+
 
 ### Setup DB
 
