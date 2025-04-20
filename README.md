@@ -91,9 +91,17 @@ More complex
 
     python -m manage runserver
 
-# Heroku
+## Deployment
 
-you have to login to a heroku bash and setup the db and create the admin user as desbribed in the UNIX section
+The application is hosted on Heroku. You'll need:
+
+- Access to the application on heroku. Contact maintainers if you are not.
+- The heroku cli.
+
+Afterwards
+
+- To deploy to main branch to basimilch-test: `git push heroku`
+- To deploy a feature branch the test application: `git push heroku feature-branch:main`
 
 # Provision basimilch-test with a subset of actual data
 
