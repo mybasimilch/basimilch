@@ -1,8 +1,8 @@
-# Getting started
+# Basimilch web application
 
 On any environment, ensure Python 3 is installed.
 
-## UNIX
+## Getting started on UNIX
 
 ### Set your environment variables
 
@@ -28,28 +28,34 @@ Note: First install uv
 
 ### Setup DB
 
-    ./manage.py migrate
+    python manage.py migrate
 
 ### Setup Admin User
 
-    ./manage.py createsuperuser
-    ./manage.py create_member_for_superusers
+    python manage.py createsuperuser
+    python manage.py create_member_for_superusers
 
 ### Create Tesdata (not required)
 
-Simple
+#### Simple
 
-    ./manage.py generate_testdata
+    python manage.py generate_testdata
 
-More complex
+#### More complex
 
-    ./manage.py generate_testdata_advanced
+First install faker: `pip install faker` or `uv pip install faker` if you are using uv.
+
+    python manage.py generate_testdata_advanced
 
 ### Run the server
 
-    ./manage.py runserver
+    python manage.py runserver
 
-## Windows
+Navigate to [127.0.0.1:8000](127.0.0.1:8000). You should be able to login with the superuser name or their email address.
+
+## Getting started Windows
+
+Note: This section is likely outdated
 
 ### Set your environment variables
 
