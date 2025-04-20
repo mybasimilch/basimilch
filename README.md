@@ -26,25 +26,20 @@ Note: First install uv
 - Install the dependencies: `uv pip install -r requirements-local.txt`
 - (To deactivate the virtual environment again): `deactivate`
 
-### Setup DB
+### Setting up the database, admin user and test data
 
+    # Carry out database migrations. This will create a sqlite database
     python manage.py migrate
 
-### Setup Admin User
-
+    # Make sure you have a user with a passowrd to access the application locally
     python manage.py createsuperuser
     python manage.py create_member_for_superusers
-
-### Create Tesdata (not required)
-
-#### Simple
-
-    python manage.py generate_testdata
-
-#### More complex
-
-First install faker: `pip install faker` or `uv pip install faker` if you are using uv.
-
+    
+    # Not required, but usefull
+    python manage.py generate_testdata # creates simple test data
+    
+    # If you want to create more complex test data (not required, but usefull)
+    # First install faker: `pip install faker` or `uv pip install faker` if you are using uv.
     python manage.py generate_testdata_advanced
 
 ### Run the server
