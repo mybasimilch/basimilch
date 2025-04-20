@@ -21,14 +21,18 @@ from juntagrico_custom_sub.entity.subscription_content_item import (
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-
         confirm = (
-            input("This will delete data in the currently configured database. Type CONFIRM to proceed:\n") == "CONFIRM"
+            input(
+                "This will delete data in the currently configured database. Type CONFIRM to proceed:\n"
+            )
+            == "CONFIRM"
         )
 
         if confirm:
             start_of_year = datetime(datetime.today().year, 1, 1, tzinfo=pytz.UTC)
-            cancellation_limit = datetime(datetime.today().year - 1, 9, 30, tzinfo=pytz.UTC)
+            cancellation_limit = datetime(
+                datetime.today().year - 1, 9, 30, tzinfo=pytz.UTC
+            )
 
             call_command("clearsessions")
 
@@ -39,13 +43,17 @@ class Command(BaseCommand):
             print("deleted admin logs: ", admin_logs[0])
 
             # TODO: potentially use polymorphic api: https://django-polymorphic.readthedocs.io/en/stable/
-            assignments = Assignment.objects.filter(job__time__lte=start_of_year).delete()
+            assignments = Assignment.objects.filter(
+                job__time__lte=start_of_year
+            ).delete()
             print("deleted assignments: ", assignments[0])
 
             one_time_jobs = OneTimeJob.objects.filter(time__lte=start_of_year).delete()
             print("deleted one-time jobs: ", one_time_jobs[0])
 
-            recurring_jobs = RecuringJob.objects.filter(time__lte=start_of_year).delete()
+            recurring_jobs = RecuringJob.objects.filter(
+                time__lte=start_of_year
+            ).delete()
             print("deleted recurring jobs: ", recurring_jobs[0])
 
             jobs = Job.objects.filter(time__lte=start_of_year).delete()
@@ -72,7 +80,9 @@ class Command(BaseCommand):
                 subscription_contents[0],
             )
 
-            subscriptions = Subscription.objects.filter(cancellation_date__lte=cancellation_limit).delete()
+            subscriptions = Subscription.objects.filter(
+                cancellation_date__lte=cancellation_limit
+            ).delete()
             print(
                 "deleted subscriptions: ",
                 subscriptions[0],
@@ -86,7 +96,11 @@ class Command(BaseCommand):
 
             members = Member.objects.filter(
                 Q(~Exists(Share.objects.filter(member=OuterRef("pk"))))
-                & Q(~Exists(SubscriptionMembership.objects.filter(member=OuterRef("pk"))))
+                & Q(
+                    ~Exists(
+                        SubscriptionMembership.objects.filter(member=OuterRef("pk"))
+                    )
+                )
                 & Q(~Exists(Assignment.objects.filter(member=OuterRef("pk"))))
             ).delete()
             print(
