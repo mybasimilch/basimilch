@@ -1,12 +1,12 @@
 # Getting started
 
-On any environment, ensure Python 3 is installed. 
+On any environment, ensure Python 3 is installed.
 
 ## UNIX
 
 ### Set your environment variables
-See the .env.template for details. Reach out to maintainers for secrets.
 
+See the .env.template for details. Reach out to maintainers for secrets.
 
 ### Installing requirements
 
@@ -18,12 +18,13 @@ See the .env.template for details. Reach out to maintainers for secrets.
 - (To deactivate the virtual environment again): `deactivate`
 
 #### Bleeding edge approach using the [uv package manager for python](https://docs.astral.sh/uv/)
+
 Note: First install uv
+
 - Create a new virtual environment: `uv venv`
 - Activate the virtual environment: `source .venv/bin/activate`
 - Install the dependencies: `uv pip install -r requirements-local.txt`
 - (To deactivate the virtual environment again): `deactivate`
-
 
 ### Setup DB
 
@@ -90,7 +91,7 @@ you have to login to a heroku bash and setup the db and create the admin user as
 
 # Provision basimilch-test with a subset of actual data
 
-## Requirements:
+## Requirements
 
 - heroku cli
 - local postgres database
