@@ -6,4 +6,3 @@ whitenoise~=6.7.0
 git+http://github.com/mybasimilch/juntagrico-list-gen@1.6.0
 git+http://github.com/mybasimilch/juntagrico-depot-management.git@1.6.0
 git+http://github.com/mybasimilch/juntagrico-assignment-export.git@1.6.0
-git+https://github.com/PaulKC/juntagrico-polling.git@feat/show-results

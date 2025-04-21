@@ -24,5 +24,4 @@ urlpatterns = [
     path("", include("juntagrico_list_gen.urls")),
     path("", include("juntagrico_depot_management.urls")),
     path("", include("juntagrico_assignment_export.urls")),
-    path("", include("juntagrico_polling.urls")),
 ]

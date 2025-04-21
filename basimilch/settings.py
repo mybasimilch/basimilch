@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "juntagrico_custom_sub",
     "juntagrico_depot_management",
     "juntagrico_assignment_export",
-    "juntagrico_polling",
     "basimilch",
     "juntagrico",
     "fontawesomefree",
