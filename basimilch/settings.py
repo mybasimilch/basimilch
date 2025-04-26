@@ -24,6 +24,7 @@ ALLOWED_HOSTS = [
     "my.basimil.ch",
     "basimilch.juntagrico.science",
     "mein.basimil.ch",
+    "basimilch-test-heroku-24-782002a35340.herokuapp.com ",  # TODO: Remove after Stack upgrade
 ]
 
 
