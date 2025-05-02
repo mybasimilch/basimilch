@@ -130,14 +130,15 @@ Note: If you already have an .env file, you can export them like so on ubuntu:  
 
 5. Create a new database inside the docker container: `docker exec -u postgres postgres createdb $JUNTAGRICO_DATABASE_NAME`
 6. Restore the downloaded backup `docker exec -u postgres postgres pg_restore --verbose --clean --no-acl --no-owner -h localhost -d $JUNTAGRICO_DATABASE_NAME /home/postgres/dump/$JUNTAGRICO_DATABASE_NAME.dump`
-7. (Optional) To stop the docker container and delete the database, run `docker stop postgres`
+7. (If you are running a higher juntagrico version locally than in production) `python manage.py migrate`
+8. (Optional) To stop the docker container and delete the database, run `docker stop postgres`
 
 ### Upload the production data to basimilch test for testing
 
 After an update has been made, it might be useful for testers to test with the current production data. Follow steps 1-5 above. Then:
 
 0. (No longer required. See prepare_db_for_test.py) To delete some of the data avoid heroku row limit of 10'000 rows (free tier), run the management command `python manage.py prepare_db_for_test`
-1. `docker exec postgres pg_dump --format=c --dbname=postgresql://$JUNTAGRICO_DATABASE_USER:$JUNTAGRICO_DATABASE_PASSWORD@127.0.0.1:5432/$JUNTAGRICO_DATABASE_NAME > /home/posgres/dump`
+1. `docker exec postgres pg_dump --format=c --dbname=postgresql://$JUNTAGRICO_DATABASE_USER:$JUNTAGRICO_DATABASE_PASSWORD@127.0.0.1:5432/$JUNTAGRICO_DATABASE_NAME > $DB_DUMP_STORAGE_LOCATION/$JUNTAGRICO_DATABASE_NAME.sql`
 2. Upload the dump to a safe storage, e.g. an AWS S3 bucket and create a presigned url, through the S3 UI
-3. Export the presigned url `export AWS_PRESIGNED_URL DATABASE_URL= url obtained from step 3`
+3. Export the presigned url `export AWS_PRESIGNED_URL= url obtained from step 3`
 4. Restore the database to basimilch-test: `heroku pg:backups:restore $AWS_PRESIGNED_URL DATABASE_URL --app basimilch-test`. Note: this deletes everything currently in the database
