@@ -4,5 +4,4 @@ psycopg[binary]>=3.1.8
 setuptools~=78.1.0 # needed to build packages on git
 whitenoise~=6.7.0
 git+http://github.com/mybasimilch/juntagrico-list-gen@main
-git+http://github.com/mybasimilch/juntagrico-depot-management.git@main
 git+http://github.com/mybasimilch/juntagrico-assignment-export.git@main

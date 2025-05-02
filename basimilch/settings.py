@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "juntagrico_list_gen",
     "juntagrico_custom_sub",
-    "juntagrico_depot_management",
     "juntagrico_assignment_export",
     "basimilch",
     "juntagrico",
