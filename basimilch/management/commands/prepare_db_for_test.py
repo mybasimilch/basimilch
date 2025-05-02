@@ -6,7 +6,8 @@ from django.contrib.admin.models import LogEntry
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 from impersonate.models import ImpersonationLog
-from juntagrico.entity.jobs import Assignment, Job, OneTimeJob, RecuringJob
+from juntagrico.entity.jobs import Assignment, Job, OneTimeJob, ActivityArea
+from juntagrico.entity import contact
 from juntagrico.entity.subs import Subscription
 from juntagrico.entity.share import Share
 from juntagrico.entity.member import Member, SubscriptionMembership
@@ -18,17 +19,28 @@ from juntagrico_custom_sub.entity.subscription_content_item import (
     SubscriptionContentItem,
 )
 
+###
+# This management command has originally been writte to reduce the number of lines in the database, as to
+# comply with the heroku free tier row limit.
+# Heroku has since changed their pricing model, so this command is not needed anymore.
+# However, it might be useful one day to implement data deletion of members who have left basimilch
+##
+
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-
         confirm = (
-            input("This will delete data in the currently configured database. Type CONFIRM to proceed:\n") == "CONFIRM"
+            input(
+                "This will delete data in the currently configured database. Type CONFIRM to proceed:\n"
+            )
+            == "CONFIRM"
         )
 
         if confirm:
             start_of_year = datetime(datetime.today().year, 1, 1, tzinfo=pytz.UTC)
-            cancellation_limit = datetime(datetime.today().year - 1, 9, 30, tzinfo=pytz.UTC)
+            cancellation_limit = datetime(
+                datetime.today().year - 1, 9, 30, tzinfo=pytz.UTC
+            )
 
             call_command("clearsessions")
 
@@ -39,14 +51,36 @@ class Command(BaseCommand):
             print("deleted admin logs: ", admin_logs[0])
 
             # TODO: potentially use polymorphic api: https://django-polymorphic.readthedocs.io/en/stable/
-            assignments = Assignment.objects.filter(job__time__lte=start_of_year).delete()
+            assignments = Assignment.objects.filter(
+                job__time__lte=start_of_year
+            ).delete()
             print("deleted assignments: ", assignments[0])
 
             one_time_jobs = OneTimeJob.objects.filter(time__lte=start_of_year).delete()
             print("deleted one-time jobs: ", one_time_jobs[0])
 
-            recurring_jobs = RecuringJob.objects.filter(time__lte=start_of_year).delete()
-            print("deleted recurring jobs: ", recurring_jobs[0])
+            jobs = Job.objects.filter(time__lte=start_of_year)
+
+            # For some reason, cascase does not work for bulk delete
+            # let's delete related objects manually
+            contacts = contact.Contact.objects.filter(
+                object_id__in=jobs.values_list("id", flat=True)
+            )
+
+            contact.EmailContact.objects.filter(
+                contact_ptr_id__in=contacts.values_list("id", flat=True)
+            ).delete()
+            contact.TextContact.objects.filter(
+                contact_ptr_id__in=contacts.values_list("id", flat=True)
+            ).delete()
+            contact.PhoneContact.objects.filter(
+                contact_ptr_id__in=contacts.values_list("id", flat=True)
+            ).delete()
+            contact.MemberContact.objects.filter(
+                contact_ptr_id__in=contacts.values_list("id", flat=True)
+            ).delete()
+
+            contacts.delete()
 
             jobs = Job.objects.filter(time__lte=start_of_year).delete()
             print("deleted jobs: ", jobs[0])
@@ -72,7 +106,9 @@ class Command(BaseCommand):
                 subscription_contents[0],
             )
 
-            subscriptions = Subscription.objects.filter(cancellation_date__lte=cancellation_limit).delete()
+            subscriptions = Subscription.objects.filter(
+                cancellation_date__lte=cancellation_limit
+            ).delete()
             print(
                 "deleted subscriptions: ",
                 subscriptions[0],
@@ -85,9 +121,15 @@ class Command(BaseCommand):
             )
 
             members = Member.objects.filter(
+                Q(~Exists(ActivityArea.objects.filter(coordinator=OuterRef("pk")))),
+                Q(~Exists(Subscription.objects.filter(primary_member=OuterRef("pk")))),
                 Q(~Exists(Share.objects.filter(member=OuterRef("pk"))))
-                & Q(~Exists(SubscriptionMembership.objects.filter(member=OuterRef("pk"))))
-                & Q(~Exists(Assignment.objects.filter(member=OuterRef("pk"))))
+                & Q(
+                    ~Exists(
+                        SubscriptionMembership.objects.filter(member=OuterRef("pk"))
+                    )
+                )
+                & Q(~Exists(Assignment.objects.filter(member=OuterRef("pk")))),
             ).delete()
             print(
                 "deleted members: ",

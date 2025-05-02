@@ -24,6 +24,7 @@ ALLOWED_HOSTS = [
     "my.basimil.ch",
     "basimilch.juntagrico.science",
     "mein.basimil.ch",
+    "basimilch-test-heroku-24-782002a35340.herokuapp.com",  # TODO: Remove after Stack upgrade
 ]
 
 
@@ -39,9 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "juntagrico_list_gen",
     "juntagrico_custom_sub",
-    "juntagrico_depot_management",
     "juntagrico_assignment_export",
-    "juntagrico_polling",
     "basimilch",
     "juntagrico",
     "fontawesomefree",
@@ -89,6 +88,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
+                "juntagrico.context_processors.vocabulary",
             ],
             "loaders": [
                 "django.template.loaders.filesystem.Loader",
