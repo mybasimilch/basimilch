@@ -21,7 +21,7 @@ Am {{ jt }}-{{ jet }} findet dein {{ c_organisation_name }}-Arbeitseinsatz "{{ j
 Wir freuen uns, dich zu sehen und zählen auf dich!
 {% endblocktrans %}
 
-Bitte das Hygienekonzept hier beachten: https://drive.google.com/file/d/1adaV7tDQrI1f_yXl9r1gQDrbxkqcNeS-/
+Bitte das Hygienekonzept hier beachten: https://drive.google.com/file/d/1sTLNaKN-b6SCczBVXtAm4P2EB7Z0Ny-i/
 
 {% blocktrans trimmed %}
 Bis bald und liebe Grüsse die {{ c_organisation_name }}-Betriebsgruppe
