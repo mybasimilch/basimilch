@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.admin",
+    "basimilch",
     "juntagrico_list_gen",
     "juntagrico_custom_sub",
     "juntagrico_assignment_export",
-    "basimilch",
     "juntagrico",
     "fontawesomefree",
     "import_export",
@@ -78,6 +78,7 @@ class InvalidTemplateVariable(str):
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
+        'APP_DIRS': True,
         "OPTIONS": {
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
@@ -90,14 +91,9 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "juntagrico.context_processors.vocabulary",
             ],
-            "loaders": [
-                "django.template.loaders.filesystem.Loader",
-                "django.template.loaders.app_directories.Loader",
-            ],
             # "string_if_invalid": InvalidTemplateVariable("%s"),
-            "debug": True,
+            "debug": DEBUG,
         },
-        "DIRS": ["basimilch/custom_templates"],
     },
 ]
 
