@@ -249,3 +249,5 @@ if USE_S3:
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 
 IMPORT_EXPORT_EXPORT_PERMISSION_CODE = "view"
+
+SUB_OVERVIEW_FORMAT = {'delimiter': '|', 'format': '{product}:{size}:{type}={amount}', 'part_format': '{type}'}
