@@ -23,6 +23,10 @@ Wir freuen uns, dich zu sehen und zählen auf dich!
 
 Bitte das Hygienekonzept hier beachten: https://drive.google.com/file/d/1sTLNaKN-b6SCczBVXtAm4P2EB7Z0Ny-i/
 
+Achtung:
+Die Haltestelle Wettingen Bahnhofplatz ist infolge Sperrung der Güterstrasse verschoben.
+Bitte benutzt für die Linie 3 die erweiterten Haltestellen direkt nach der Ausfahrt an der Seminarstrasse.
+
 {% blocktrans trimmed %}
 Bis bald und liebe Grüsse die {{ c_organisation_name }}-Betriebsgruppe
 {% endblocktrans %}
