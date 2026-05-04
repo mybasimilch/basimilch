@@ -188,7 +188,7 @@ CRISPY_FAIL_SILENTLY = not DEBUG
 ORGANISATION_NAME = "Basimilch"
 ORGANISATION_LONG_NAME = "Basimilch"
 ORGANISATION_ADDRESS = {
-    "name": "Genossenschaft basimilch ",
+    "name": "Genossenschaft basimilch",
     "street": "Herterenhof",
     "number": "",
     "zip": "5430",
