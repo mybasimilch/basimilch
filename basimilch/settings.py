@@ -188,11 +188,11 @@ CRISPY_FAIL_SILENTLY = not DEBUG
 ORGANISATION_NAME = "Basimilch"
 ORGANISATION_LONG_NAME = "Basimilch"
 ORGANISATION_ADDRESS = {
-    "name": "Basimilch",
-    "street": "Alte Kindhauserstrasse",
-    "number": "3",
-    "zip": "8953",
-    "city": "Dietikon ZH",
+    "name": "Genossenschaft basimilch ",
+    "street": "Herterenhof",
+    "number": "",
+    "zip": "5430",
+    "city": "Wettingen",
     "extra": "",
 }
 
