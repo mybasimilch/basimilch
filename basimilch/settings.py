@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.admin",
     "basimilch",
-    "juntagrico_list_gen",
     "juntagrico_custom_sub",
     "juntagrico_assignment_export",
     "juntagrico",

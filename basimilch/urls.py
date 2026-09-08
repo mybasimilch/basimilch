@@ -21,6 +21,5 @@ urlpatterns = [
     path("", include("juntagrico_custom_sub.urls")),
     path("", include("juntagrico.urls")),
     path("impersonate/", include("impersonate.urls")),
-    path("", include("juntagrico_list_gen.urls")),
     path("", include("juntagrico_assignment_export.urls")),
 ]
