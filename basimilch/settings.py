@@ -19,12 +19,9 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "[::1]",
-    "basimilch-test.herokuapp.com",
-    "basimilch-prod.herokuapp.com",
     "my.basimil.ch",
     "basimilch.juntagrico.science",
     "mein.basimil.ch",
-    "basimilch-test-heroku-24-782002a35340.herokuapp.com",  # TODO: Remove after Stack upgrade
 ]
 
 
@@ -39,7 +36,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.admin",
     "basimilch",
-    "juntagrico_list_gen",
     "juntagrico_custom_sub",
     "juntagrico_assignment_export",
     "juntagrico",
@@ -232,18 +228,14 @@ BUSINESS_YEAR_CANCELATION_MONTH = 5
 MEMBERSHIP_END_MONTH = 12
 MEMBERSHIP_END_NOTICE_PERIOD = 5
 
-# SPECIFIC SETTINGS FOR HEROKU
-USE_S3 = os.environ.get("USE_S3") == "True"
-
-if USE_S3:
-    INSTALLED_APPS.append("django_s3_storage")
-    DEFAULT_FILE_STORAGE = "django_s3_storage.storage.S3Storage"
-    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-    AWS_REGION = os.environ.get("AWS_REGION")
-    AWS_S3_BUCKET_AUTH = False
-    AWS_S3_BUCKET_NAME = os.environ.get("AWS_S3_BUCKET_NAME")
-    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-
 IMPORT_EXPORT_EXPORT_PERMISSION_CODE = "view"
 
 SUB_OVERVIEW_FORMAT = {'delimiter': '|', 'format': '{product}:{size}:{type}={amount}', 'part_format': '{type}'}
+
+# Staging
+if os.environ.get('JUNTAGRICO_STAGING') == '1':
+    # staging URL erlauben
+    ALLOWED_HOSTS.append('basimilch-staging.juntagrico.science')
+    # E-Mails Deaktivieren
+    EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
+    STYLES['static'].append('css/staging.css')
