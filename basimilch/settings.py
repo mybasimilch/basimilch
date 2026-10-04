@@ -3,6 +3,8 @@ Django settings for basimilch project.
 """
 
 import os
+from juntagrico import defaults
+from juntagrico_custom_sub import defaults as cs_defaults
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,6 +26,9 @@ ALLOWED_HOSTS = [
     "mein.basimil.ch",
 ]
 
+DEPOT_LISTS = cs_defaults.DEPOT_LISTS
+
+SIGNUP_MANAGER = "juntagrico_custom_sub.util.sessions.SignupManager"
 
 # Application definition
 
@@ -34,17 +39,18 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django.contrib.admin",
+    "juntagrico.apps.JuntagricoAdminConfig",
     "basimilch",
     "juntagrico_custom_sub",
-    "juntagrico_assignment_export",
     "juntagrico",
-    "fontawesomefree",
     "import_export",
     "impersonate",
     "crispy_forms",
     "adminsortable2",
     "polymorphic",
+    'crispy_bootstrap4',
+    'django_select2',
+    'djrichtextfield',
 ]
 
 ROOT_URLCONF = "basimilch.urls"
@@ -101,6 +107,8 @@ TIME_ZONE = "Europe/Zurich"
 
 LANGUAGE_CODE = "de"
 
+DJRICHTEXTFIELD_CONFIG = defaults.richtextfield_config(LANGUAGE_CODE)
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -136,6 +144,8 @@ MIDDLEWARE = [
 ]
 SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "False") == "True"
 
+EMAIL_BACKEND='juntagrico.backends.email.EmailBackend'
+
 EMAIL_HOST = os.environ.get("JUNTAGRICO_EMAIL_HOST")
 EMAIL_HOST_USER = os.environ.get("JUNTAGRICO_EMAIL_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("JUNTAGRICO_EMAIL_PASSWORD")
@@ -147,8 +157,6 @@ EMAIL_USE_SSL = os.environ.get("JUNTAGRICO_EMAIL_SSL", "False") == "True"
 EMAILS = {
     "j_reminder": "job_reminder.txt",
 }
-
-SESSION_SERIALIZER = "django.contrib.sessions.serializers.PickleSerializer"
 
 WHITELIST_EMAILS = []
 
@@ -230,7 +238,7 @@ MEMBERSHIP_END_NOTICE_PERIOD = 5
 
 IMPORT_EXPORT_EXPORT_PERMISSION_CODE = "view"
 
-SUB_OVERVIEW_FORMAT = {'delimiter': '|', 'format': '{product}:{size}:{type}={amount}', 'part_format': '{type}'}
+SUB_OVERVIEW_FORMAT = {'delimiter': '|', 'format': '{category}:{bundle}:{type}={amount}', 'part_format': '{type}'}
 
 # Staging
 if os.environ.get('JUNTAGRICO_STAGING') == '1':
