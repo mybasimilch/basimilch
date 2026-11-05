@@ -1,4 +1,4 @@
-juntagrico-custom-sub==2.0.2
+git+https://github.com/juntagrico/juntagrico-custom-sub.git@feat/respect-subscription-interval
 juntagrico==2.0.10
 psycopg[binary]>=3.1.8
 setuptools~=78.1.0 # needed to build packages on git
