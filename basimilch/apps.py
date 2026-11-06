@@ -7,5 +7,6 @@ class BasimilchAppConfig(AppConfig):
 
     def ready(self):
         from juntagrico.forms import SubscriptionPartBaseForm
-        from .validators import quantity_error
+        from .validators import quantity_error, depot_interval_error
         SubscriptionPartBaseForm.validators.append(quantity_error)
+        SubscriptionPartBaseForm.validators.append(depot_interval_error)

@@ -1,0 +1,15 @@
+{% load juntagrico.snippets %}
+{% load basimilch_depot %}
+{% comment %}
+    basimilch: depots that do not allow the selected subscription types (longer delivery interval) are disabled
+{% endcomment %}
+<select name="depot" id="depot" class="form-control">
+    {% for depot in depots %}
+        {% depot_unavailable depot subscription_count as unavailable %}
+        <option value="{{ depot.id }}" id="depot{{ depot.sort_order }}"
+                {% if unavailable %}disabled{% elif depot.id == selected %}selected{% endif %}>
+            {{ depot.name }} {% depot_fee depot subscription_count "(" ")" %}
+            {% if unavailable %}(nur wöchentliche Lieferung){% endif %}
+        </option>
+    {% endfor %}
+</select>

@@ -36,3 +36,27 @@ def quantity_error(form):
             "Musst immer die grösstmögliche Abogrösse nehmen. "
             "Es ist zum Beispiel nicht möglich, 8 Liter auf zwei Vierliter-Abos aufzuteilen."
         )
+
+
+def depot_interval_error(form):
+    """
+    validates that newly ordered or changed parts with a longer delivery interval
+    are only added to subscriptions at depots that allow them (also for a pending depot change).
+    During signup there is no subscription yet, the depot is checked by basimilch.sessions.SignupManager.
+    """
+    from basimilch.depot_rules import check_depot_allows
+
+    if hasattr(form, 'part'):
+        # change form: the newly chosen type replaces form.part
+        type_id = getattr(form, 'cleaned_data', {}).get('part_type')
+        if not type_id:
+            return
+        new_types = [SubscriptionType.objects.get(pk=type_id)]
+        subscription = form.part.subscription
+    else:
+        new_types = [sub_type for sub_type, amount in form.get_selected().items() if amount]
+        subscription = getattr(form, 'subscription', None)
+    if subscription is None:
+        return
+    for depot in filter(None, [subscription.depot, subscription.future_depot]):
+        check_depot_allows(depot, new_types)

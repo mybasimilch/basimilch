@@ -28,7 +28,7 @@ ALLOWED_HOSTS = [
 
 DEPOT_LISTS = cs_defaults.DEPOT_LISTS
 
-SIGNUP_MANAGER = "juntagrico_custom_sub.util.sessions.SignupManager"
+SIGNUP_MANAGER = "basimilch.sessions.SignupManager"
 
 # Application definition
 
