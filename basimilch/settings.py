@@ -5,6 +5,7 @@ Django settings for basimilch project.
 import os
 from juntagrico import defaults
 from juntagrico_custom_sub import defaults as cs_defaults
+from juntagrico_shop import defaults as shop_defaults
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +27,12 @@ ALLOWED_HOSTS = [
     "mein.basimil.ch",
 ]
 
-DEPOT_LISTS = cs_defaults.DEPOT_LISTS
+DEPOT_LISTS = {**cs_defaults.DEPOT_LISTS, **shop_defaults.DEPOT_LISTS}
+# puts the shop orders on the lists before they are rendered
+DEFAULT_DEPOTLIST_GENERATORS = shop_defaults.DEFAULT_DEPOTLIST_GENERATORS
+
+# receives an email for every shop order and cancellation
+SHOP_ADMIN_EMAIL = os.environ.get("SHOP_ADMIN_EMAIL")
 
 SIGNUP_MANAGER = "juntagrico_custom_sub.util.sessions.SignupManager"
 
@@ -41,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "juntagrico.apps.JuntagricoAdminConfig",
     "basimilch",
+    "juntagrico_shop",
     "juntagrico_custom_sub",
     "juntagrico",
     "import_export",

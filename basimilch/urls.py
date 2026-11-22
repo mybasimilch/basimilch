@@ -18,6 +18,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", include("juntagrico_shop.urls")),
     path("", include("juntagrico_custom_sub.urls")),
     path("", include("juntagrico.urls")),
     path("impersonate/", include("impersonate.urls")),
